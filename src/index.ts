@@ -1,18 +1,11 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
-import { Pool } from "pg";
 import config from './config';
 
 const app = express();
 
-const pool = new Pool({
-  user: "me",
-  host: "localhost",
-  database: "api",
-  password: "password",
-  port: 5432,
-});
+
 
 async function startServer() {
   const app = express();

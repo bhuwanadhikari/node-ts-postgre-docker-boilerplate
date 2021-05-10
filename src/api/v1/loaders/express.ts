@@ -1,9 +1,29 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
+
+
 import routes from "../../v1/index";
 import config from "../../../config";
 
-export default ({ app }: { app: express.Application }) => {
+import { createConnection } from "typeorm";
+import { User } from "../models/User";
+
+export default async ({ app }: { app: express.Application }) => {
+
+
+
+  //db connection here
+  await createConnection({
+    type: "postgres",
+    host: "localhost",
+    port: 5432,
+    username: "postgres", 
+    password: "admin",
+    entities: [User],
+    synchronize: true,
+    name: "learning_app",
+  });
+
   /**
    * Health Check endpoints
    * @TODO Explain why they are here
@@ -15,24 +35,14 @@ export default ({ app }: { app: express.Application }) => {
     res.status(200).end();
   });
 
-  // Useful if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
-  // It shows the real origin IP in the heroku or Cloudwatch logs
-//   app.enable("trust proxy");
 
-  // The magic package that prevents frontend developers going nuts
-  // Alternate description:
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
-
-  // Some sauce that always add since 2014
-  // "Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it."
-  // Maybe not needed anymore ?
 
   // Middleware that transforms the raw string of req.body into json
   app.use(express.json());
   // Load API routes
-//   app.use(config.api.prefix, routes());
-  app.use('/api/v1/', routes());
+  app.use(config.api.prefix, routes());
 
   /// catch 404 and forward to error handler
 //   app.use((req, res, next) => {

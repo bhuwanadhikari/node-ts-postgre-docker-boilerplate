@@ -1,26 +1,32 @@
 import cors from "cors";
+import morgan from "morgan";
 import express from "express";
+import swaggerUi from "swagger-ui-express";
 
 import routes from "../../v1/index";
 import config from "../../../config";
 
-import { ConnectionOptions, createConnection } from "typeorm";
-import { User } from "../models/User";
+
 
 export default async ({ app }: { app: express.Application }) => {
-  // const dbConfig: ConnectionOptions = {
-  //   type: "postgres",
-  //   host: "localhost",
-  //   port: 5432,
-  //   username: "postgres",
-  //   password: "admin",
-  //   entities: [User],
-  //   synchronize: true,
-  //   database: "entranceup",
-  // };
 
-  // //db connection here
-  // await createConnection(dbConfig);
+  //use morgan for logging
+  app.use(morgan('dev'));
+
+  //for static files
+  app.use(express.static("public"));
+
+
+  //swagger for api docs
+  app.use(
+    "/docs",
+    swaggerUi.serve,
+    swaggerUi.setup(undefined, {
+      swaggerOptions: {
+        url: "/swagger.json",
+      },
+    })
+  );
 
   /**
    * Health Check endpoints
@@ -41,32 +47,4 @@ export default async ({ app }: { app: express.Application }) => {
   // Load API routes
   app.use(config.api.prefix, routes());
 
-  /// catch 404 and forward to error handler
-  //   app.use((req, res, next) => {
-  //     const err = new Error("Not Found");
-  //     // err['status'] = 404;
-  //     next(err);
-  //   });
-
-  /// error handlers
-  //   app.use((err, req, res, next) => {
-  //     /**
-  //      * Handle 401 thrown by express-jwt library
-  //      */
-  //     if (err.name === 'UnauthorizedError') {
-  //       return res
-  //         .status(err.status)
-  //         .send({ message: err.message })
-  //         .end();
-  //     }
-  //     return next(err);
-  //   });
-  //   app.use((err, req, res, next) => {
-  //     res.status(err.status || 500);
-  //     res.json({
-  //       errors: {
-  //         message: err.message,
-  //       },
-  //     });
-  //   });
 };

@@ -5,9 +5,18 @@ const router = Router();
 export default (app: Router) => {
   app.use("/users", router);
 
-  router.get("/me", async (req: Request, res: Response) => {
+  router.get("", async (req: Request, res: Response) => {
     const controller = new UserController();
     const response = await controller.getUsers();
     return res.send(response);
   });
+
+
+  router.get("/create", async (req: Request, res: Response) => {
+    const controller = new UserController();
+    const response = await controller.createUser(req.body);
+    return res.send(response);
+  });
+
+
 };

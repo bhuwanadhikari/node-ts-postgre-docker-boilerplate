@@ -7,6 +7,8 @@ async function beginServer() {
   //require has to be used here, import availabe only at top level
   await require("./api/v1/loaders").default({ app: app });
 
+  
+
   app
     .listen(config.port, () => {
       console.log(`\n 💪💪 Server is listening on port: ${config.port}  💪💪 \n`);

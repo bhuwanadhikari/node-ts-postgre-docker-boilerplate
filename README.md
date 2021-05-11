@@ -1,0 +1,1 @@
+Boiler plate for server with node.js with typescript, postgresql with typeorm.

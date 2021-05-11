@@ -1,4 +1,4 @@
-import { getConnection, getRepository } from "typeorm";
+import { getConnection, getConnectionOptions, getRepository } from "typeorm";
 import { User } from "../models";
 
 export interface IUserPayload {
@@ -6,14 +6,12 @@ export interface IUserPayload {
   firstName: string;
   lastName: string;
   email: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export const getUsers = async (): Promise<Array<User>> => {
   try {
     console.log("getting the repository");
-    const userRepository = getRepository(User);
+    const userRepository = getConnection().getRepository(User);
     return userRepository.find();
   } catch (e) {
     console.log(e);

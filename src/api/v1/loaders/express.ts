@@ -1,28 +1,26 @@
 import cors from "cors";
 import express from "express";
 
-
 import routes from "../../v1/index";
 import config from "../../../config";
 
-import { createConnection } from "typeorm";
+import { ConnectionOptions, createConnection } from "typeorm";
 import { User } from "../models/User";
 
 export default async ({ app }: { app: express.Application }) => {
-
-
-
-  //db connection here
-  await createConnection({
+  const dbConfig: ConnectionOptions = {
     type: "postgres",
     host: "localhost",
     port: 5432,
-    username: "postgres", 
+    username: "postgres",
     password: "admin",
     entities: [User],
     synchronize: true,
-    name: "learning_app",
-  });
+    database: "entranceup",
+  };
+
+  //db connection here
+  await createConnection(dbConfig);
 
   /**
    * Health Check endpoints
@@ -35,7 +33,6 @@ export default async ({ app }: { app: express.Application }) => {
     res.status(200).end();
   });
 
-
   // Enable Cross Origin Resource Sharing to all origins by default
   app.use(cors());
 
@@ -45,11 +42,11 @@ export default async ({ app }: { app: express.Application }) => {
   app.use(config.api.prefix, routes());
 
   /// catch 404 and forward to error handler
-//   app.use((req, res, next) => {
-//     const err = new Error("Not Found");
-//     // err['status'] = 404;
-//     next(err);
-//   });
+  //   app.use((req, res, next) => {
+  //     const err = new Error("Not Found");
+  //     // err['status'] = 404;
+  //     next(err);
+  //   });
 
   /// error handlers
   //   app.use((err, req, res, next) => {

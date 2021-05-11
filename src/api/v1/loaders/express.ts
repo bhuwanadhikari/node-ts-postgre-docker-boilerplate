@@ -8,19 +8,19 @@ import { ConnectionOptions, createConnection } from "typeorm";
 import { User } from "../models/User";
 
 export default async ({ app }: { app: express.Application }) => {
-  const dbConfig: ConnectionOptions = {
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "admin",
-    entities: [User],
-    synchronize: true,
-    database: "entranceup",
-  };
+  // const dbConfig: ConnectionOptions = {
+  //   type: "postgres",
+  //   host: "localhost",
+  //   port: 5432,
+  //   username: "postgres",
+  //   password: "admin",
+  //   entities: [User],
+  //   synchronize: true,
+  //   database: "entranceup",
+  // };
 
-  //db connection here
-  await createConnection(dbConfig);
+  // //db connection here
+  // await createConnection(dbConfig);
 
   /**
    * Health Check endpoints

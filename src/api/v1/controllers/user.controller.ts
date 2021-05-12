@@ -1,7 +1,5 @@
 import { User } from "../models";
 
-import { Get, Route, Tags, Post, Body, Path } from "tsoa";
-
 import {
   getUsers,
   createUser,
@@ -9,10 +7,7 @@ import {
   getUser,
 } from "../repositories/user.repository";
 
-@Route("users")
-@Tags("User")
-export default class UserController {
-  @Get("/")
+export default class UserController    {
   public async getUsers(): Promise<Array<User>> {
     return getUsers();
   }

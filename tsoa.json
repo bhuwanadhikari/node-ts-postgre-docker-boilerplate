@@ -1,10 +1,15 @@
 {
-    "entryFile": "src/index.ts",
-    "noImplicitAdditionalProperties": "throw-on-extras",
-    "spec": {
-      "outputDirectory": "public",
-      "specVersion": 3
-    },
-    "ignore": ["**/node_modules/**"]
-  }
-  
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "spec": {
+    "outputDirectory": "public",
+    "specVersion": 3
+  },
+  "ignore": ["**/node_modules/**"],
+  "routes": {
+    "controllerPathGlobs": [
+        "./src/routes/**/*.ts",
+        "./src/controllers/**/*.ts"
+    ]
+}
+}

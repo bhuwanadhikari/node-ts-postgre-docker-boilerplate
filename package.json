@@ -48,7 +48,9 @@
   },
   "nodemonConfig": {
     "watch": [
-      "src"
+      "src",
+      "package.json",
+      "tsoa.json"
     ],
     "ext": "ts",
     "exec": "ts-node src/index.ts"

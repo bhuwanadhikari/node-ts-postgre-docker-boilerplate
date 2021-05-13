@@ -11,7 +11,7 @@ async function beginServer() {
 
   app
     .listen(config.port, () => {
-      console.log(`\n 💪💪 Server is listening on port: ${config.port}  💪💪 \n`);
+      console.log(`\n 💪  Server is listening on port: ${config.port}\n`);
     })
     .on("error", (err) => {
       console.log(err);

@@ -3,3 +3,5 @@ database.sql
 build
 package-lock.json
 yarn-error.log
+
+playground.js

@@ -1,7 +1,6 @@
 import cors from "cors";
 import morgan from "morgan";
 import express from "express";
-import swaggerUi from "swagger-ui-express";
 
 import routes from "../../v1/index";
 import config from "../../../config";
@@ -16,17 +15,6 @@ export default async ({ app }: { app: express.Application }) => {
   //for static files
   app.use(express.static("public"));
 
-
-  //swagger for api docs
-  app.use(
-    "/docs",
-    swaggerUi.serve,
-    swaggerUi.setup(undefined, {
-      swaggerOptions: {
-        url: "/swagger.json",
-      },
-    })
-  );
 
   /**
    * Health Check endpoints

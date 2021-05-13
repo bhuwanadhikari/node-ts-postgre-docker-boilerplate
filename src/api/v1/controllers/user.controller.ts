@@ -4,19 +4,19 @@ import {
   getUsers,
   createUser,
   IUserPayload,
-  getUser,
+  getUserById,
 } from "../repositories/user.repository";
 
 export default class UserController    {
   public async getUsers(): Promise<Array<User>> {
-    return getUsers();
+    return getUsers(); 
   }
 
-  public async createUser(body: IUserPayload): Promise<User> {
+  public async createUser(body: User): Promise<User> {
     return createUser(body);
   }
 
   public async getUser(id: string): Promise<User | null> {
-    return getUser(Number(id));
+    return getUserById(Number(id));
   }
 }

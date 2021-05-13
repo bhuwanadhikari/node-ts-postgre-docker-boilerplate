@@ -11,12 +11,9 @@ export default (app: Router) => {
     return res.send(response);
   });
 
-
   router.get("/create", async (req: Request, res: Response) => {
     const controller = new UserController();
     const response = await controller.createUser(req.body);
     return res.send(response);
   });
-
-
 };

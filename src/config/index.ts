@@ -1,14 +1,14 @@
-import dotenv from "dotenv";
+// import dotenv from "dotenv";
 
-// Set the NODE_ENV to 'development' by default
-process.env.NODE_ENV = process.env.NODE_ENV || "development";
+// // Set the NODE_ENV to 'development' by default
+// process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
-const envFound = dotenv.config();
-if (envFound.error) {
-  // This error should crash whole process
+// const envFound = dotenv.config();
+// if (envFound.error) {
+//   // This error should crash whole process
 
-  throw new Error("⚠️  Couldn't find .env file  ⚠️");
-}
+//   throw new Error("⚠️  Couldn't find .env file  ⚠️");
+// }
 
 export default {
   /**
@@ -25,7 +25,7 @@ export default {
   /**
    * Your secret sauce
    */
-  jwtSecret: process.env.JWT_SECRET || "",
+  jwtSecret: process.env.JWT_SECRET || "secret",
   //   jwtAlgorithm: process.env.JWT_ALGO,
 
   /**
@@ -43,11 +43,18 @@ export default {
   },
   postgres: {
     port: process.env.POSTGRES_PORT,
-    username: process.env.POSTGRES_USERNAME,
+    username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
   },
+  // postgres: {
+  //   port: "5432",
+  //   username: "postgres",
+  //   password: "admin",
+  //   host: "postgres",
+  //   database: "entranceupdb",
+  // },
   /**
    * Mailgun email credentials
    */

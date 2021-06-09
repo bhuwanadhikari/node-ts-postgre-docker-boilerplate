@@ -33,10 +33,12 @@ export default class AuthController {
         };
       }
 
+      console.log("hwere is the body", body);
+
       //check if email already in use
       const user = await getUserByEmail(body.email);
       console.log(user);
-      if (!user) {
+      if (!isEmpty(user)) {
         return {
           success: false,
           errors: {
@@ -69,6 +71,7 @@ export default class AuthController {
         },
       };
     } catch (e) {
+      console.log(e);
       return {
         success: false,
         errors: {

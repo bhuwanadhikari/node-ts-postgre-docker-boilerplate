@@ -9,6 +9,9 @@ import config from "../../../config";
 
 export default async ({ app }: { app: express.Application }) => {
 
+
+
+
   //use morgan for logging
   app.use(morgan('dev'));
 
@@ -21,7 +24,7 @@ export default async ({ app }: { app: express.Application }) => {
    * @TODO Explain why they are here
    */
   app.get("/status", (req, res) => {
-    res.status(200).end();
+    res.status(200).send("working");
   });
   app.head("/status", (req, res) => {
     res.status(200).end();

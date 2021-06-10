@@ -4,7 +4,6 @@ import { User } from "../models";
 
 export default async (): Promise<any> => {
 
-  console.log("These are the database configs", config);
 
   try {
     await createConnection({

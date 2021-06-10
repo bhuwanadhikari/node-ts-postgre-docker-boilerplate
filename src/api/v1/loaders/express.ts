@@ -9,6 +9,7 @@ import config from "../../../config";
 
 export default async ({ app }: { app: express.Application }) => {
 
+  console.log("here");
 
   //use morgan for logging
   app.use(morgan('dev'));

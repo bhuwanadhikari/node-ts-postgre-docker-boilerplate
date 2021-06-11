@@ -1,11 +1,15 @@
 FROM node:lts-alpine
 
-RUN mkdir -p /usr/app
-WORKDIR /usr/app
-# COPY ./ ./
-COPY package.json ./
-COPY tsconfig.json ./
-RUN npm install 
 
-EXPOSE 8080
-CMD npm run dev
+# Create and define the node_modules's cache directory.
+RUN mkdir /usr/cache
+WORKDIR /usr/cache
+
+# Install the application's dependencies into the node_modules's cache directory.
+COPY package.json ./
+# COPY package-lock.json ./
+RUN npm install
+
+# Create and define the application's working directory.
+RUN mkdir /usr/app
+WORKDIR /usr/app

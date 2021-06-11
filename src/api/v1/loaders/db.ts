@@ -16,7 +16,7 @@ export default async (): Promise<any> => {
       synchronize: true,
       database: config.postgres.database,
     });
-    console.log("Database connection done...")
+    console.log(" \n 💪  Postgresql is connected...")
   } catch (e) {
     console.log("Error while database is trying to connect;")
     console.log(e);

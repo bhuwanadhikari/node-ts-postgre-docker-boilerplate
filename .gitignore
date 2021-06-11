@@ -1,7 +1,7 @@
 node_modules
 database.sql
 build
-package-lock.json
+# package-lock.json
 yarn-error.log
 .env
 

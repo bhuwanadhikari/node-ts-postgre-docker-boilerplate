@@ -15,7 +15,7 @@ export default {
    * Your favorite port
    */
   // port: parseInt(process.env.PORT, 10),
-  port: 8080,
+  port: process.env.PORT,
 
   /**
    * That long string from mlab
@@ -48,13 +48,7 @@ export default {
     host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
   },
-  // postgres: {
-  //   port: "5432",
-  //   username: "postgres",
-  //   password: "admin",
-  //   host: "postgres",
-  //   database: "entranceupdb",
-  // },
+ 
   /**
    * Mailgun email credentials
    */

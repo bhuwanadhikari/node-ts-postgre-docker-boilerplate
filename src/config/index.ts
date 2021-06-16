@@ -42,7 +42,7 @@ export default {
     prefix: "/api/v1",
   },
   postgres: {
-    port: process.env.POSTGRES_PORT,
+    port: process.env.POSTGRES_CONTAINER_PORT || "5432",  //AS NODE IS IN SAME DOCKER N/W SO USE CONTAINER PORT
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     host: process.env.POSTGRES_HOST,

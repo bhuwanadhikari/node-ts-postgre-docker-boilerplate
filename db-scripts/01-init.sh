@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "Inside the db-scripts"
 psql << EOF
 CREATE DATABASE $POSTGRES_DB;
 CREATE USER $POSTGRES_USER WITH PASSWORD $POSTGRES_PASSWORD;

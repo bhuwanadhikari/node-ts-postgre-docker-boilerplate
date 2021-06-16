@@ -9,7 +9,7 @@ export default async (): Promise<any> => {
     await createConnection({
       type: "postgres",
       host: config.postgres.host,
-      port: parseInt(config.postgres.port || "5432"),
+      port: parseInt(config.postgres.port),
       username: config.postgres.username,
       password: config.postgres.password,
       entities: [User],

@@ -72,10 +72,13 @@ export default class AuthController {
         success: true,
         payload: {
           token: `Bearer ${token}`,
+<<<<<<< HEAD
           id: newUser.id,
           name: newUser.name,
           email: newUser.email,
           board: "ioe",
+=======
+>>>>>>> a37d9694103669fb214d5d10d10db69b376825ba
         },
       };
     } catch (e) {
@@ -120,6 +123,7 @@ export default class AuthController {
       });
       return {
         success: true,
+<<<<<<< HEAD
         payload: {
           token: `Bearer ${token}`,
           id: user.id,
@@ -127,12 +131,19 @@ export default class AuthController {
           email: user.email,
           board: "ioe",
         },
+=======
+        payload: { token: `Bearer ${token}` },
+>>>>>>> a37d9694103669fb214d5d10d10db69b376825ba
       };
     } catch (e) {
       console.log(e);
       return {
         success: false,
+<<<<<<< HEAD
         errors: { sudden: e },
+=======
+        errors: { sudden: e   },
+>>>>>>> a37d9694103669fb214d5d10d10db69b376825ba
       };
     }
   }

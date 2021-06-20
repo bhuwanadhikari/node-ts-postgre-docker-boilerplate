@@ -77,11 +77,21 @@ After you successfully clone the project,  to be able to run our dev environment
 There will be altogether 3 containers running, one for node server, one for postgresql server and the another for postgres admin.
 The node server will be running at `localhost:8080` and you will also be able to access postgresql admin at `localhost:8000`.
 
+To access the database through the pg-admin, you should login using pg-admin credentials you have set in .env file and also you have to connect to the postgres database by creating new server in the pg-admin panel stating name and credentials of the postgres. For host remember, that you have to set `postgres` not `localhost` and port as `5432`.
+
 Postgresql will have `helldb` created as default as `dbscripts/01-init.sh` will run in default when `postgres` container spin up. 
 
 To utilize the **hot reload** feature, you can do some changes in code and see if it's working or not.  This is possible because of  volume mapping feature in docker.  You can see the logs using following command.
 
 `docker logs --follow node-ts-postgre `
+
+or just 
+
+`docker-compose up ` 
+
+will show logs of all the containers in subsequent ups of containers.
+
+
 
 You can stop all those running containers by the following command
 

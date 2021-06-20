@@ -7,7 +7,7 @@ export =  {
   password: config.postgres.password,
   database: config.postgres.database,
   entities: [
-    'src/api/v1/models/**.{.ts,.js}',
+    'src/api/v1/models/*.model.ts',
   ],
   migrations: [
     'src/migrations/*.ts',

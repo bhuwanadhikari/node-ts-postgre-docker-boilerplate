@@ -3,7 +3,7 @@ interface PingResponse {
   message: string;
 }
 
-export default class PingController {
+export default class PingService {
   public async getMessage(): Promise<PingResponse> {
     return {
       message: "pong",

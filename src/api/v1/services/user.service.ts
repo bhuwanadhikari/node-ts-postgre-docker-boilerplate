@@ -7,7 +7,7 @@ import {
   getUserById,
 } from "../repositories/user.repository";
 
-export default class UserController    {
+export default class UserService    {
   public async getUsers(): Promise<Array<User>> {
     return getUsers(); 
   }

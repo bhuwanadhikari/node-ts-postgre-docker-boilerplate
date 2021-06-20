@@ -1,25 +1,25 @@
 import { Router, Request, Response } from "express";
-import AuthController from "../controllers/auth.controller";
+import AuthService from "../services/auth.service";
 
 const route = Router();
 
 export default (app: Router) => {
   app.use("/auth", route);
 
-
+  
   /**
    * /auth/signup
    */
   route.post("/signup", async (req: Request, res: Response) => {
-   const controller = new AuthController();
-   const response = await controller.signup(req.body);
+   const service = new AuthService();
+   const response = await service.signup(req.body);
    res.json(response);
   });
 
 
   route.post("/signin", async (req: Request, res: Response) => {
-    const controller = new AuthController();
-    const response = await controller.signin(req.body);
+    const service = new AuthService();
+    const response = await service.signin(req.body);
     res.json(response);
   });
 };

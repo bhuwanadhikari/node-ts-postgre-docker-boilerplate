@@ -1,7 +1,7 @@
 import { IErrors } from "../interfaces/IError";
 import { User } from "../models";
 import { isEmpty } from "./isEmpty";
-import { ISigninBody } from "../controllers/auth.controller";
+import { ISigninBody } from "../services/auth.service";
 
 export const validateSignUp = (
   data: User

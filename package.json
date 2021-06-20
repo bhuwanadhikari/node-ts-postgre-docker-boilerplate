@@ -8,7 +8,7 @@
     "build": "tsc",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migration:create": "ts-node ./node_modules/typeorm/cli.js migration:create --config src/config/ormconfig.ts --connection -n",
+    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate --config src/config/ormconfig.ts --connection -n",
     "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run --config src/config/ormconfig.ts --connection",
     "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert --config src/config/ormconfig.ts --connection"
   },
@@ -29,6 +29,7 @@
     "reflect-metadata": "^0.1.13",
     "swagger-jsdoc": "6.0.0",
     "swagger-ui-express": "^4.1.6",
+    "typedi": "^0.10.0",
     "typeorm": "^0.2.32"
   },
   "devDependencies": {

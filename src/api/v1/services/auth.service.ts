@@ -24,7 +24,7 @@ export interface ISigninBody {
 
 type IResponse = IResponseSuccess<IAuthPayload> | IResponseError;
 
-export default class AuthController {
+export default class AuthService {
   //signing up the user by email
   public async signup(body: User): Promise<IResponse> {
     try {

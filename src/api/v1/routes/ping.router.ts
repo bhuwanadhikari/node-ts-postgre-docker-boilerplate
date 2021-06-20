@@ -1,11 +1,11 @@
 import express from "express";
-import PingController from "../controllers/ping.controller";;
+import PingService from "../services/ping.service";;
 
 const router = express.Router();
 
 router.get("/ping", async (_req, res) => {
-  const controller = new PingController();
-  const response = await controller.getMessage();
+  const service = new PingService();
+  const response = await service.getMessage();
   return res.send(response);
 });
 

@@ -11,6 +11,10 @@ import { isEmpty } from "../validations/isEmpty";
 
 interface IAuthPayload {
   token: string;
+  name: string;
+  email: string;
+  id: string | number;
+  board: string;
 }
 
 export interface ISigninBody {
@@ -68,6 +72,10 @@ export default class AuthController {
         success: true,
         payload: {
           token: `Bearer ${token}`,
+          id: newUser.id,
+          name: newUser.name,
+          email: newUser.email,
+          board: "ioe",
         },
       };
     } catch (e) {
@@ -112,13 +120,19 @@ export default class AuthController {
       });
       return {
         success: true,
-        payload: { token: `Bearer ${token}` },
+        payload: {
+          token: `Bearer ${token}`,
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          board: "ioe",
+        },
       };
     } catch (e) {
       console.log(e);
       return {
         success: false,
-        errors: { sudden: e   },
+        errors: { sudden: e },
       };
     }
   }

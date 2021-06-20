@@ -2,7 +2,7 @@ import { getConnection, getConnectionOptions, getRepository } from "typeorm";
 import { User } from "../models";
 
 export interface IUserPayload {
-  id: number;
+  id: string | number;
   firstName: string;
   lastName: string;
   email: string;
@@ -22,7 +22,9 @@ export const createUser = async (payload: User): Promise<User> => {
   });
 };
 
-export const getUserById = async (id: number): Promise<User | null> => {
+export const getUserById = async (
+  id: string | number
+): Promise<User | null> => {
   const userRepository = getRepository(User);
   const user = await userRepository.findOne({ id: id });
   if (!user) return null;

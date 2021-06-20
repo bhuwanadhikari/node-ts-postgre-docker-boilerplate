@@ -5,5 +5,7 @@ build
 yarn-error.log
 .env
 
+src/migrations/
+
 
 playground.js
